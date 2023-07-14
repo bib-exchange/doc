@@ -25,7 +25,7 @@
 
 | 参数          | 数据类型   | 填写类型 | 说明                                                         |
 | ------------- | ---------- | -------- | ------------------------------------------------------------ |
-| clientOrderId | String     | 必填     | 客户端下单标识ID,小于32的字符串                              |
+| clientOrderId | String     | 选填     | 客户端下单标识ID,小于32的字符串                              |
 | contractName  | String     | 必填     | 合约名称，例如：E-BTC-USDT，E表示永续合约。当前可交易列表可以从/contracts接口获取，其中的symbol字段就是这里的参数 |
 | open          | String     | 必填     | 做市商固定"OPEN"                                             |
 | positionType  | Integer    | 必填     | 持仓类型(1 全仓，2 仓逐)                                     |
