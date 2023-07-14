@@ -1,8 +1,8 @@
 ### url:www.***.com(例)
 
-## 接口地址:/fapi/v1/index
+## 接口地址:/fapi/v1/contracts
 
-## 接口说明:(get请求)获取某个币对的深度
+## 接口说明:(get请求)当前可交易合约列表
 
 Content-Type:application/x-www-form-urlencoded
 
