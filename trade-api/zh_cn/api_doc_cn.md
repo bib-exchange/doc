@@ -72,44 +72,32 @@ REST，即Representational State Transfer的缩写，是一种流行的互联网
 
 # <span id="a1">API接口加密验证</span>
 
-## <span id="a2">生成API Key</span>
+## <span id="a2">生成API Public Key</span>
 在对任何请求进行签名之前，您必须通过 [交易所]【用户中心】-【API】创建一个API key。 创建key后，您将获得3个必须记住的信息：
 
 - API Key
- 
+
 - Secret Key
 
 API Key 和 Secret Key将由随机生成和提供
 ## <span id="a3">发起请求</span>
 所有REST请求都必须包含以下标题：
 
-- ACCESS-KEY API KEY作为一个字符串。
-- ACCESS-SIGN 使用base64编码签名（请参阅签名消息）。
-- ACCESS-TIMESTAMP 作为您的请求的时间戳。
+- X-CH-APIKEY 作为一个字符串。
+- X-CH-SIGN 使用base64编码签名（请参阅签名消息）。
+- X-CH-TS 作为您的请求的时间戳。
 - 所有请求都应该含有application/json类型内容，并且是有效的JSON。
 
 ## <span id="a4">签名</span>
 
 生成待签名的字符串
-    -   [open-api Demo](https://github.com/bibvip-github/doc/blob/master/demo/demo.java)
-    
+    -   [SignUtil](https://github.com/bibvip-github/doc/blob/main/trade-api/futures-%E5%90%88%E7%BA%A6/demo/SignUtil.java)
+
 1、先将参数以其参数名的字典序升序进行排序
 
 2、遍历排序后的字典，将所有参数按"keyvalue"格式拼接在一起（非空参数）
 
 3、使用MD5对待签名串求签
-
-例：
-
-api_key = 1234567
-
-time = 12312312312137
-
-secret_key = 789654
-
-sign=md5(api_key1234567time12312312312137789654)
-
-
 
 ## <span id="a6">请求交互</span>
 
@@ -193,9 +181,9 @@ HTTP状态码200表示成功响应，并可能包含内容。如果响应含有�
 ## <span id="a9">标准规范</span>
 
 ### <span id="b1">时间戳</span> 
-除非另外指定，API中的所有时间戳均以微秒为单位返回。
+除非另外指定，API中的所有时间戳均以毫秒为单位返回。
 
-请求签名中的ACCESS-TIMESTAMP的单位是秒，允许用小数表示更精确的时间。请求的时间戳必须在API服务时间的30秒内，否则请求将被视为过期并被拒绝。如果本地服务器时间和API服务器时间之间存在较大的偏差，那么我们建议您使用通过查询API服务器时间来更新http header。
+请求签名中的ACCESS-TIMESTAMP的单位是秒，允许用小数表示更精确的时间。请求的时间戳必须在API服务时间的5秒内，否则请求将被视为过期并被拒绝。如果本地服务器时间和API服务器时间之间存在较大的偏差，那么我们建议您使用通过查询API服务器时间来更新http header。
 
 ###  <span id="b2">例子</span> 
 1524801032573
@@ -465,7 +453,7 @@ REST API
 |msg    |"suc"  |code>0失败|
 |data   |“”|
 
- 
+
 |虚拟币编号|xxx-cny（xxx101）|xxx-btc（xxx201）|
 |------------|-----------|------------|
 |btc|   btccny| -|
