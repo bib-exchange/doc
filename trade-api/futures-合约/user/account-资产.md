@@ -2,7 +2,7 @@
 
 ## 接口地址:/fapi/v1/account
 
-## 接口说明:(post请求)资产
+## 接口说明:(get请求)资产
 
 #### HEADER
 
