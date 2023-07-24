@@ -1,6 +1,6 @@
 ### url:www.***.com(例)
 
-## 接口地址:/fapi/v1/position
+## 接口地址:/fapi/v1/positions
 
 ## 接口说明:(get请求)持仓
 
