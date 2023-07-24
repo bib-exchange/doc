@@ -24,7 +24,27 @@
 |参数|	填写类型|	说明|
 |--------|--------|--------|
 
-返回值:
+##### 请求示例：
+
+~~~
+curl --location --request GET 'http://futures-open-api.bibk8suat.com/fapi/v1/positions?contractName=E-BTC-USDT' \
+--header 'X-CH-APIKEY: 06833aff9e695f50edd31137923f79d8' \
+--header 'X-CH-TS: 1690172300000' \
+--header 'X-CH-SIGN: c94693a01fc3aa452b76ed4e31bc300970b267b5810f04b4f1cb08770a4b994c' \
+--header 'Cookie: http_waf_cookie=2bd6d51f-90e2-46dc5b02de9db91545cde6732946763a8e1e'
+~~~
+
+##### 加密字符串
+
+~~~
+将时间毫秒数+请求方法+path+参数拼接成以下字符串，然后使用HmacSha256进行计算，以E-BTC-USDT举例如下
+签名字符串：1690172300000GET/fapi/v1/positions?contractName=E-BTC-USDT
+签名结果：c94693a01fc3aa452b76ed4e31bc300970b267b5810f04b4f1cb08770a4b994c
+~~~
+
+
+
+##### 返回值:
 
 	 [
 	    {
@@ -40,4 +60,4 @@
 	        "realizedAmount": 0.000000
 	    }
 	]
-	
+
