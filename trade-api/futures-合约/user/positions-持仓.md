@@ -30,8 +30,7 @@
 curl --location --request GET 'http://futures-open-api.bibk8suat.com/fapi/v1/positions?contractName=E-BTC-USDT' \
 --header 'X-CH-APIKEY: 06833aff9e695f50edd31137923f79d8' \
 --header 'X-CH-TS: 1690172300000' \
---header 'X-CH-SIGN: c94693a01fc3aa452b76ed4e31bc300970b267b5810f04b4f1cb08770a4b994c' \
---header 'Cookie: http_waf_cookie=2bd6d51f-90e2-46dc5b02de9db91545cde6732946763a8e1e'
+--header 'X-CH-SIGN: c94693a01fc3aa452b76ed4e31bc300970b267b5810f04b4f1cb08770a4b994c'
 ~~~
 
 ##### 加密字符串

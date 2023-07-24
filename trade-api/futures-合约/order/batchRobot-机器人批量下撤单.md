@@ -54,9 +54,26 @@
 }
 ~~~
 
+##### 请求示例：
 
+~~~
+curl --location --request POST 'http://futures-open-api.bibk8suat.com/fapi/v1/batchRobot' \
+--header 'X-CH-APIKEY: 06833aff9e695f50edd31137923f79d8' \
+--header 'X-CH-TS: 1690187300000' \
+--header 'X-CH-SIGN: 7acda88bea9107253a5f406bbd966ac7da9dd95cabc645991b775e3578341286' \
+--header 'Content-Type: application/json' \
+--data-raw '{"contractName":"E-BTC-USDT","orders":[{"clientOrderId":"waynee","contractName":"E-BTC-USDT","open":"OPEN","positionType":1,"price":29700.00,"side":"BUY","type":"LIMIT","volume":200}]}'
+~~~
 
-返回值:
+##### 加密字符串
+
+~~~
+将时间毫秒数+请求方法+path+参数拼接成以下字符串，然后使用HmacSha256进行计算，以E-BTC-USDT举例如下
+签名字符串：1690187300000POST/fapi/v1/batchRobot{"contractName":"E-BTC-USDT","orders":[{"clientOrderId":"waynee","contractName":"E-BTC-USDT","open":"OPEN","positionType":1,"price":29700.00,"side":"BUY","type":"LIMIT","volume":200}]}
+签名结果：7acda88bea9107253a5f406bbd966ac7da9dd95cabc645991b775e3578341286
+~~~
+
+##### 返回值:
 
 ```json
 {
