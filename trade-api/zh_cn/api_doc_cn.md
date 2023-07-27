@@ -99,6 +99,8 @@ API Key 和 Secret Key将由随机生成和提供
 
 3、使用MD5对待签名串求签
 
+### 注：签名所使用的时间戳应当与请求头中时间戳保持一致，否则无法验签成功
+
 ## <span id="a6">请求交互</span>
 
 REST访问的根URL：``` https://openapi.domain.com ```
