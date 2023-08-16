@@ -1,33 +1,66 @@
-### url:www.***.com(例)
+**/fapi/v1/contracts（当前可交易合约列表查询）**
 
-## 接口地址:/fapi/v1/contracts
+请求类型：GET
 
-## 接口说明:(get请求)当前可交易合约列表
+接口权限：读取
 
-Content-Type:application/x-www-form-urlencoded
+### 请求参数
 
-|参数|	填写类型|	说明|
-|--------|--------|--------|
+|参数| 数据类型 | 是否必填 | 描述 |
+|--------|--------|--------|--------|
+||	|	|	|
 
-返回值:
+备注：
+
+此接口不接受任何参数
+
+### 响应参数
+
+| 参数            | 数据类型   | 是否必填 | 描述                                         |
+| --------------- | ---------- | -------- | -------------------------------------------- |
+| symbol          | String     | 是       | 合约名称                                     |
+| pricePrecision  | Integer    | 是       | 价格精度                                     |
+| side            | Integer    | 是       | 合约方向(反向：0，1：正向)                   |
+| maxMarketVolume | Integer    | 是       | 市价单最大下单数量                           |
+| multiplier      | BigDecimal | 是       | 合约面值                                     |
+| minOrderVolume  | Integer    | 是       | 最小下单量                                   |
+| maxMarketMoney  | BigDecimal | 是       | 市价最大下单金额                             |
+| type            | String     | 是       | 合约类型，E:永续合约 W:周 N:次周 M:月 Q:季度 |
+| maxLimitVolume  | Integer    | 是       | 限价单最大下单数量                           |
+| maxValidOrder   | Integer    | 是       | 最大有效委托的订单数量                       |
+| multiplierCoin  | String     | 是       | 合约面值单位                                 |
+| minOrderMoney   | BigDecimal | 是       | 最小下单金额                                 |
+| maxLimitMoney   | BigDecimal | 是       | 限价最大下单金额                             |
+| status          |            | 是       | 合约状态（0：不可交易，1：可交易）           |
+
+### 请求示例
+
+~~~
+curl --request GET 'http://futures-open-api.bibk8suat.com/fapi/v1/contracts' \
+--header 'Cookie: http_waf_cookie=ce522c65-b90f-45270432ff479fa26c7c0aaa6f405c3028e5'
+~~~
+
+响应示例
 
 ```json
 [
 	{
-        "symbol": "E-BTC-USDT",
+        "symbol": "E-QTUM-USDT",
         "pricePrecision": 4,
         "side": 1,
-        "maxMarketVolume": 000,
-        "multiplier": 0.00010000000,
+        "maxMarketVolume": 3000000,
+        "multiplier": 1.0000000000000000,
         "minOrderVolume": 1,
-        "maxMarketMoney": 000,
+        "maxMarketMoney": 40000000.0000000000000000,
         "type": "E",
         "maxLimitVolume": 3000000,
         "maxValidOrder": 10,
-        "multiplierCoin": "BTC",
-        "minOrderMoney": 000,
-        "maxLimitMoney": 000,
+        "multiplierCoin": "QTUM",
+        "minOrderMoney": 35.0000000000000000,
+        "maxLimitMoney": 40000000.0000000000000000,
         "status": 1
     }
 ]
 ```
+
+错误码解释
