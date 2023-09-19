@@ -35,9 +35,8 @@
 
 ### 请求示例
 
-~~~
-curl --request GET 'http://futures-open-api.bibk8suat.com/fapi/v1/contracts' \
---header 'Cookie: http_waf_cookie=ce522c65-b90f-45270432ff479fa26c7c0aaa6f405c3028e5'
+~~~shell
+curl -X GET 'http://futures-open-api.bibk8suat.com/fapi/v1/contracts'
 ~~~
 
 响应示例
