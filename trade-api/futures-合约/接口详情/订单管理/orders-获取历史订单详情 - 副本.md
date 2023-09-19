@@ -1,4 +1,4 @@
-**/fapi/v1/orderInfo（获取订单详情）**
+**/fapi/v1/orders（获取订单详情）**
 
 请求类型：GET
 
