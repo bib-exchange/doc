@@ -1,6 +1,7 @@
 # spot-wsc-open-api
 
 spot-wsc-open-api - 现货-做市商推送服务
+生产环境wss端点：wss://spot-wsc-open-api.bibvip.com/spot-open-api/ws
 
 ### spot-wsc-open-api package:
 - config      -- 配置bean
